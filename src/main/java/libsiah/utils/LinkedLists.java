@@ -1,4 +1,6 @@
-package libsiah;
+package libsiah.utils;
+
+import libsiah.LinkedList;
 
 public final class LinkedLists {
     private LinkedLists() {}
@@ -17,7 +19,9 @@ public final class LinkedLists {
     }
 
     public static <T> void add(LinkedList<T> head, LinkedList<T> element) {
-        if (head == null || element == null) return;
+        if (head == null || element == null) {
+            throw new IllegalArgumentException("Cannot add with null argument(s).");
+        }
 
         while (head.hasNext()) {
             head = head.getNext();

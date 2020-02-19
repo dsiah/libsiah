@@ -1,7 +1,9 @@
-package libsiah;
+package libsiah.utils;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
+
+import libsiah.LinkedList;
 
 public class LinkedListsTest {
     @Test 
@@ -43,5 +45,17 @@ public class LinkedListsTest {
         assertEquals(Integer.valueOf(1), head.getVal());
         assertEquals(Integer.valueOf(2), head.getNext().getVal());
         assertEquals(Integer.valueOf(3), head.getNext().getNext().getVal());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void add_withNullElement_throwsIllegalArgException() {
+        LinkedList<Integer> head = new LinkedList<>(1);
+        LinkedLists.add(head, null);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void add_withNullList_throwsIllegalArgException() {
+        LinkedList<Integer> tail = new LinkedList<>(1);
+        LinkedLists.add(null, tail);
     }
 }
