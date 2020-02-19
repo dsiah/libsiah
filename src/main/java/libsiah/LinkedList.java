@@ -24,7 +24,7 @@ public class LinkedList<T> {
     }
 
     public boolean hasNext() {
-        return next == null;
+        return next != null;
     }
 
     public void setVal(T val) {

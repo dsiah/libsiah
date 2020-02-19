@@ -42,4 +42,27 @@ public class LinkedListTest {
 
         assertEquals(Integer.valueOf(2), node1.getNext().getVal());
     }
+
+    @Test
+    public void hasNext_withNullConstructor_returnsFalse() {
+        LinkedList<Integer> list = new LinkedList<>(1);
+
+        assertFalse(list.hasNext());
+    }
+
+    @Test
+    public void hasNext_withMultipleNodes_returnsTrue() {
+        LinkedList<Integer> node2 = new LinkedList<>(2);
+        LinkedList<Integer> node1 = new LinkedList<>(1, node2);
+
+        assertTrue(node1.hasNext());
+    }
+
+    @Test
+    public void setVal_withNewValue_successful() {
+        LinkedList<Integer> list = new LinkedList<>(1);
+        list.setVal(2);
+
+        assertEquals(Integer.valueOf(2), list.getVal());
+    }
 }
